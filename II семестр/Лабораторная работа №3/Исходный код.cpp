@@ -5,15 +5,32 @@ using namespace std;
 
 
 
-float DoWhile(float A, unsigned int m)
+float While(float A, int m)
+{
+    float S;
+
+    int i = 1;
+    while (i <= m)
+    {
+        float x = -2.5 + 2.f * i / m;
+        S += (2 * x * x - 5.f * i / m) / (sqrt(x * x + 0.5));
+        i++;
+    };
+
+    S *= A;
+
+    return S;
+}
+
+float DoWhile(float A, int m)
 {
     float S;
 
     int i = 1;
     do
     {
-        float x = -2.5 + 2 * i / m;
-        S += (2 * x * x - 5 * i / m) / (sqrt(x * x + 0.5));
+        float x = -2.5 + 2.f * i / m;
+        S += (2 * x * x - 5.f * i / m) / (sqrt(x * x + 0.5));
         i++;
     }
     while (i <= m);
@@ -29,8 +46,8 @@ float For(float A, int m)
 
     for (int i = 1; i <= m; i++)
     {
-        float x = -2.5 + 2 * i / m;
-        S += (2 * x * x - 5 * i / m) / (sqrt(x * x + 0.5));
+        float x = -2.5 + 2.f * i / m;
+        S += (2 * x * x - 5.f * i / m) / (sqrt(x * x + 0.5));
     };
 
     S *= A;
@@ -38,22 +55,7 @@ float For(float A, int m)
     return S;
 }
 
-float While(float A, int m)
-{
-    float S;
 
-    int i = 1;
-    while (i <= m)
-    {
-        float x = -2.5 + 2 * i / m;
-        S += (2 * x * x - 5 * i / m) / (sqrt(x * x + 0.5));
-        i++;
-    };
-
-    S *= A;
-
-    return S;
-}
 
 int main()
 {
