@@ -1,0 +1,46 @@
+﻿<Window
+    x:Class="WinUI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WinUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Padding="50" Background="{ThemeResource SystemChromeMediumLowColor}">
+        <Grid ColumnDefinitions="*, *">
+            <StackPanel Orientation="Vertical" Spacing="10" Grid.Column="0">
+                <TextBlock FontSize="22">Исходная матрица</TextBlock>
+                <StackPanel x:Name="Matrix_Input_Element" Spacing="2.5" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Spacing="10" Grid.Column="1">
+                <TextBlock FontSize="22" x:Name="Matrix_Output_Title"></TextBlock>
+                <StackPanel x:Name="Matrix_Output_Element" Spacing="2.5" />
+            </StackPanel>
+        </Grid>
+
+
+        <Grid VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal" Spacing="15">
+                <TextBlock VerticalAlignment="Center" x:Name="nValue">n = 3</TextBlock>
+                <Slider  VerticalAlignment="Center" Width="250" Minimum="2" Maximum="10" Value="3" TickFrequency="1" TickPlacement="Outside" x:Name="Slider" ValueChanged="Slider_ValueChanged" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Right">
+                <Button Click="Input_Matrix_Empty">
+                    <StackPanel Orientation="Horizontal" Spacing="7.5">
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8BB;" FontSize="10" VerticalAlignment="Center"/>
+                        <TextBlock>Очистить</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Click="Input_Matrix_Fill">
+                    <StackPanel Orientation="Horizontal" Spacing="7.5">
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEC87;" FontSize="10" VerticalAlignment="Center"/>
+                        <TextBlock>Заполнить</TextBlock>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
