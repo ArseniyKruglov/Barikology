@@ -13,7 +13,7 @@ double Sin(double x, double Epsilon, unsigned int &n)
     for (n = 2; n <= INT_MAX; n++)
     {
         Current = Previous * -1 * (2 * 2 * x * x) / ((2 * n) * (2 * n - 1));
-        
+
         if (abs(Current) > Epsilon)
         {
             Sin += Current;
@@ -24,7 +24,7 @@ double Sin(double x, double Epsilon, unsigned int &n)
             break;
         };
     };
-    
+
     return Sin;
 }
 
@@ -33,7 +33,7 @@ double Sin(double x, double Epsilon, unsigned int &n)
 int main()
 {
     unsigned int n;
-        
+
     double x;
     cout << "Введите изначальное значение аргумента: ";
     cin >> x;
@@ -42,7 +42,7 @@ int main()
         cout << "Ошибка. |x| < 1";
         exit(EXIT_FAILURE);
     };
-    
+
     double xMax;
     cout << "Введите конечное значение аргумента: ";
     cin >> xMax;
@@ -51,7 +51,7 @@ int main()
         cout << "Ошибка. |xMax| < 1 и больше начального значения";
         exit(EXIT_FAILURE);
     };
-    
+
     double xStep;
     cout << "Введите шаг изменения аргумента: ";
     cin >> xStep;
@@ -60,7 +60,7 @@ int main()
         cout << "Ошибка. xStep > 0";
         exit(EXIT_FAILURE);
     };
-    
+
     double Epsilon;
     cout << "Введите точность вычисления ε: " ;
     cin >> Epsilon ;
@@ -69,19 +69,16 @@ int main()
         cout << "Ошибка. 0 < ε ≤ 0.1";
         exit(EXIT_FAILURE);
     };
-    
+
     cout << endl;
 
-    
-    
+
+
     cout << "Аргумент | Сумма        | Кол.слаг. | Контрольное значение" << endl;
-    
+
     cout.setf(ios::left, ios::adjustfield);
     for ( ; x <= xMax; x += xStep)
         cout << setw(8) << x << "   " << setw(12) << setprecision(8) << Sin(x, Epsilon, n) << "   " << setw(9) << (n - 1) << "   " << pow(sin(x), 2) << endl;
-    
+
     return 0;
 }
-
-
-

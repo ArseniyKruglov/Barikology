@@ -1,39 +1,82 @@
 ﻿Const
-  maxSize = 10;   { Максимальный размер строки (столбца) матрицы }
+  maxMatrix = 100;   { Максимальный размер строки (столбца) матрицы }
+  maxN = 50;
 
+Type
+  TRange = 1..maxMatrix;    { Тип индекса элемента матрицы }
+  TElement = Integer;       { Тип значения элемента матрицы }
+  TVector = Array[TRange] Of TElement;	{ Тип вектор }
+  TMatrix = Array[TRange] Of TVector;	  { Тип матрица }
+
+
+
+{ Ввод матрицы }
+Function MatrixInput(n: TRange):TMatrix;
 Var
-  M: Array[1..maxSize] Of Array [1..maxSize] of Integer;
-  n, i, j, underMain, underSide: Integer;
-  
+  i, j: TRange;
+  M: TMatrix;
+
 Begin
-  { Ввод }
-  Write('Размер матрицы: 2n×2n. Введите значение n (от 1 до ', maxSize / 2,') -> ');
-  Readln(n);
-  
-  WriteLn('Введите матрицу по строкам ->');
+  WriteLn('Введите матрицу по строкам:');
+
   For i := 1 To 2 * n
   Do Begin
     For j := 1 To 2 * n Do
       Read(M[i, j]);
     ReadLn;
   End;
-  
-  
-  
-  { Под главной диагональю }
+
+  MatrixInput := M;
+End;
+
+
+
+{ Поиск суммы абсолютных значений элементов, лежащих ниже главной диагонали }
+Function UnderMain(n: TRange; M: TMatrix):TElement;
+Var
+  i, j: TRange;
+
+Begin
   For j := 1 To 2 * n Do
     For i := j + 1 To 2 * n Do
-      underMain += M[i, j];
-  
-  { Под побочной диагональю }
-  For j := 1 To 2 * n Do 
+      UnderMain += M[i, j];
+End;
+
+
+
+{ Поиск суммы абсолютных значений элементов, лежащих ниже побочной диагонали }
+Function UnderSide(n: TRange; M: TMatrix):TElement;
+Var
+  i, j: TRange;
+
+Begin
+  For j := 1 To 2 * n Do
     For i := 2 * n - j + 2 To 2 * n Do
-      underSide += M[i, j];
-    
-    
-    
+      UnderSide += M[i, j];
+End;
+
+
+
+Var
+  n: Integer;
+  M: TMatrix;
+
+Begin
+  { Ввод }
+  Write('Размер матрицы: 2n×2n. Введите значение n (от 1 до ', maxN,') -> ');
+  Readln(n);
+  If n In [1..maxN] Then
+    M := MatrixInput(n)
+  Else
+  Begin
+    Write('Ошибка ввода. 1 <= n <= ', maxN);
+    Exit;
+  End;
+
+
+
   { Вывод }
-  WriteLn('Сумма абсолютных значений элементов, лежащих ниже главной диагонали: ', underMain);
-  WriteLn('Сумма абсолютных значений элементов, лежащих ниже побочной диагонали: ', underSide);
+  WriteLn('Сумма абсолютных значений элементов, лежащих ниже главной диагонали: ', UnderMain(n, M));
+  WriteLn('Сумма абсолютных значений элементов, лежащих ниже побочной диагонали: ', UnderSide(n, M));
   Read;
 End.

@@ -8,11 +8,11 @@ int main()
     float x, y;
     cout << "Введите координаты точки: x, y ";
     cin >> x >> y;
-    
-    
-    
+
+
+
     cout.precision(4);
-    
+
     if
     (
         pow((x + 1), 2) + pow((y - 1), 2) < 1 &&
@@ -55,4 +55,3 @@ int main()
 
     return 0;
 }
-

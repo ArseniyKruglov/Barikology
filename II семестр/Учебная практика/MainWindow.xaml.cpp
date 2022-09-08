@@ -92,7 +92,7 @@ namespace winrt::WinUI::implementation
     {
         InitializeComponent();
         this->Title(L"Учебная практика");
-        
+
         this->Output_Error();
     }
 

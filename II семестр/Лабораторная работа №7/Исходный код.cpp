@@ -19,7 +19,7 @@ void Input(int &n, TArray Array)
         cout << "Введено недопустимое значение размера массива";
         exit(EXIT_FAILURE);
     };
-    
+
     cout << "Введите " << 2 * n << " значений элементов масива: ";
     for (int i = 0; i < 2 * n; i++)
         cin >> Array[i];
@@ -28,20 +28,20 @@ void Input(int &n, TArray Array)
 int GetMinValueIndex(int n, TArray Array)
 {
     int Index = 0;
-    
+
     for (int i = 1; i < 2 * n; i++)
         if (abs(Array[i]) < abs(Array[Index]))
             Index = i;
-    
+
     return Index;
 }
 
 TElement Process(int n, TArray Array)
 {
     int MinValueIndex = GetMinValueIndex(n, Array);
-    
-    
-    
+
+
+
     int From, To;
     if (MinValueIndex < n)
     {
@@ -53,41 +53,29 @@ TElement Process(int n, TArray Array)
         From = (n - 1) + 1;
         To = MinValueIndex - 1;
     };
-    
-    
-    
+
+
+
     TElement Result = 0;
-    
+
     for (int i = From; i <= To; i++)
         if (Array[i] < 0)
             if (Result == 0)
                 Result = Array[i];
             else
                 Result *= Array[i];
-    
+
     return Result;
 }
-
-void Output(TElement Result)
-{
-    if (Result == 0)
-        cout << "Ничего";
-    else
-        cout << "Произведение: " << Result;
-};
 
 int main()
 {
     int n;
     TArray Array;
-    
+
     Input(n, Array);
-    
-    TElement Result = Process(n, Array);
-    
-    cout << "Произведение отрицательных значений элементов массива: " << Result;
+
+    cout << "Произведение отрицательных значений элементов массива: " << Process(n, Array);
 
     return 0;
 }
-
-

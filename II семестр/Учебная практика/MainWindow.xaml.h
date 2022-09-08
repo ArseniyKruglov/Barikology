@@ -30,15 +30,15 @@ namespace winrt::WinUI::implementation
         // Main
         void Input_Matrix_DrawEmpty();
         void Sort();
-       
+
         // Handlers
         void Slider_ValueChanged(Windows::Foundation::IInspectable const& Sender, Microsoft::UI::Xaml::Controls::Primitives::RangeBaseValueChangedEventArgs const& Arguments);
         void NumberBox_ValueChange(winrt::Windows::Foundation::IInspectable const& Sender, winrt::Microsoft::UI::Xaml::Controls::NumberBoxValueChangedEventArgs const& Arguments);
-        
+
         // Helpers
         void Input_Matrix_Fill(winrt::Windows::Foundation::IInspectable const& Sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& Arguments);
         void Input_Matrix_Empty(winrt::Windows::Foundation::IInspectable const& Sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& Arguments);
-      
+
         // Output
         void Output_Error();
         void Output_Matrix_DrawEmpty();
