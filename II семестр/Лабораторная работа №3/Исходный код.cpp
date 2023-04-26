@@ -7,71 +7,73 @@ using namespace std;
 
 float While(float A, int m)
 {
-    float S;
+	float S;
 
-    int i = 1;
-    while (i <= m)
-    {
-        float x = -2.5 + 2.f * i / m;
-        S += (2 * x * x - 5.f * i / m) / (sqrt(x * x + 0.5));
-        i++;
-    };
+	int i = 1;
+	while (i <= m)
+	{
+		float x = -2.5 + 2.f * i / m;
+		S += (2 * x * x - 5.f * i / m) / (sqrt(x * x + 0.5));
+		i++;
+	};
 
-    S *= A;
+	S *= A;
 
-    return S;
+	return S;
 }
 
 float DoWhile(float A, int m)
 {
-    float S;
+	float S;
 
-    int i = 1;
-    do
-    {
-        float x = -2.5 + 2.f * i / m;
-        S += (2 * x * x - 5.f * i / m) / (sqrt(x * x + 0.5));
-        i++;
-    }
-    while (i <= m);
+	int i = 1;
+	do
+	{
+		float x = -2.5 + 2.f * i / m;
+		S += (2 * x * x - 5.f * i / m) / (sqrt(x * x + 0.5));
+		i++;
+	}
+	while (i <= m);
 
-    S *= A;
+	S *= A;
 
-    return S;
+	return S;
 }
 
 float For(float A, int m)
 {
-    float S;
+	float S;
 
-    for (int i = 1; i <= m; i++)
-    {
-        float x = -2.5 + 2.f * i / m;
-        S += (2 * x * x - 5.f * i / m) / (sqrt(x * x + 0.5));
-    };
+	for (int i = 1; i <= m; i++)
+	{
+		float x = -2.5 + 2.f * i / m;
+		S += (2 * x * x - 5.f * i / m) / (sqrt(x * x + 0.5));
+	};
 
-    S *= A;
+	S *= A;
 
-    return S;
+	return S;
 }
 
 
 
 int main()
 {
-    float A;
-    cout << "Введите значение A: ";
-    cin >> A;
+	float A;
+	cout << "Введите значение A: ";
+	cin >> A;
 
-    int m;
-    cout << "Введите значение m: ";
-    cin >> m;
+	int m;
+	cout << "Введите значение m: ";
+	cin >> m;
 
 
 
-    cout << "S (Цикл While) = " << While(A, m) << endl;
-    cout << "S (Цикл Do...While) = " << DoWhile(A, m) << endl;
-    cout << "S (Цикл For) = " << For(A, m) << endl;
+	cout << "S (Цикл While) = " << While(A, m) << endl;
+	cout << "S (Цикл Do...While) = " << DoWhile(A, m) << endl;
+	cout << "S (Цикл For) = " << For(A, m) << endl;
 
-    return 0;
+
+
+	return 0;
 }
